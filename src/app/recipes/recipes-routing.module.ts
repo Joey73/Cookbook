@@ -8,8 +8,8 @@ import { RecipeEditComponent } from "app/recipes/recipe-edit/recipe-edit.compone
 import { RecipeDetailComponent } from "app/recipes/recipe-detail/recipe-detail.component";
 import { AuthGuard } from "app/auth/auth-guard.service";
 
-const recipeRoutes: Routes = [
-    { path: 'recipes', component: RecipesComponent, children: [
+const recipesRoutes: Routes = [
+    { path: '', component: RecipesComponent, children: [
         { path: '', component: RecipeStartComponent },
         { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
         { path: ':id', component: RecipeDetailComponent },
@@ -19,7 +19,7 @@ const recipeRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forChild(recipeRoutes)
+        RouterModule.forChild(recipesRoutes)
     ],
     exports: [RouterModule]
 })
